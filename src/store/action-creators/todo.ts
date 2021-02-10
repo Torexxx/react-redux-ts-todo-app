@@ -5,7 +5,7 @@ import { TodoActionTypes } from "../../types/todo";
 import {TodoType} from '../../types/todo'
 import { RootState } from "../reducers";
 
-export type TodoAction  = ReturnType<typeof fetchTodos> | ReturnType<typeof fetchTodosSuccess> | ReturnType<typeof fetchTodosError> | ReturnType<typeof setTodoPage>;
+export type TodoAction = ReturnType<typeof fetchTodos> | ReturnType<typeof fetchTodosSuccess> | ReturnType<typeof fetchTodosError> | ReturnType<typeof setTodoPage>;
 
 const fetchTodos = () => ({type: TodoActionTypes.FETCH_TODOS} as const);
 const fetchTodosSuccess = (todos: TodoType[]) => ({type: TodoActionTypes.FETCH_TODOS_SUCCESS, payload: todos} as const);
