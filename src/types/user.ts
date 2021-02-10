@@ -1,5 +1,5 @@
 export interface UserState {
-    users: any[]
+    users: UserType[]
     loading: boolean
     error: null | string
 }
@@ -10,16 +10,26 @@ export enum UserActionTypes {
     FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
 }
 
-type FetchUsersAction = {
-    type: UserActionTypes.FETCH_USERS
+export type UserType = {
+    id: number
+    name: string
+    username: string
+    email: string
+    address: {
+    street: string
+    suite: string
+    city: string
+    zipcode: string
+    geo: {
+        lat: string
+        lng: string
+    }
+},
+phone: string
+website: string
+    company: {
+        name: string
+        catchPhrase: string
+        bs: string
+    }
 }
-type FetchUsersSuccessAction = {
-    type: UserActionTypes.FETCH_USERS_SUCCESS
-    payload: any[]
-}
-type FetchUsersErrorAction = {
-    type: UserActionTypes.FETCH_USERS_ERROR
-    payload: string
-}
-
-export type UserAction = FetchUsersAction | FetchUsersSuccessAction | FetchUsersErrorAction;
